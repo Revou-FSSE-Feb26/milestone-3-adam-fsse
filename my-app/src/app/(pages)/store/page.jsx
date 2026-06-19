@@ -6,8 +6,10 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import AddToCartButton from "@/app/Components/AddToCartButton";
+import { useAuth } from "@/app/Components/AuthContex";
 
 export default function StorePage() {
+  const { user } = useAuth();
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -63,8 +65,12 @@ export default function StorePage() {
               <p>${product.price.toFixed(2)}</p>
             </div>
 
-            <AddToCartButton product={product} />
-
+            {user?.role === 'admin' ? (
+              <button disabled>Manage Item</button>
+            ) : (
+              <AddToCartButton product={product} />
+            )}
+            
           </Link>
         ))}
 

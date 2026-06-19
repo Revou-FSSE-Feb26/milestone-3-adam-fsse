@@ -5,6 +5,7 @@ import Header from "./Components/Header";
 import Footer from "./Components/Footer";
 
 import { CartProvider } from "./Components/CartContex";
+import { AuthProvider } from "./Components/AuthContex";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,6 +25,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body>
+        <AuthProvider>
         <CartProvider>
           <Header title="RevoShop" />
           <main>
@@ -31,6 +33,7 @@ export default function RootLayout({ children }) {
           </main>
           <Footer />
         </CartProvider>
+        </AuthProvider>
       </body>
     </html>
   );
