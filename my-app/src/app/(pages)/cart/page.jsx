@@ -1,6 +1,7 @@
 "use client";
 
 import styles from "@/app/page.module.css";
+import Link from "next/link";
 
 import { useCart } from "@/app/Components/CartContex";
 import EmptyCartButton from "@/app/Components/EmptyCartButton";
@@ -34,7 +35,13 @@ export default function CartPage() {
           </div>
         ))}
       </div>
+      <div className={styles.page}>
       <EmptyCartButton onClear={clearCart} />
+
+      <Link href="/checkout" className={styles.card3}>
+              Proceed to Checkout      
+      </Link>
+      </div>
     </div>
   );
 }

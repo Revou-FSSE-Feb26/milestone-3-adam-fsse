@@ -66,11 +66,11 @@ export default function StorePage() {
             </div>
 
             {user?.role === 'admin' ? (
-              <button disabled>Manage Item</button>
+              <button >Manage Item</button>
             ) : (
               <AddToCartButton product={product} />
             )}
-            
+
           </Link>
         ))}
 

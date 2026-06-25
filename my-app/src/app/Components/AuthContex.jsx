@@ -1,11 +1,14 @@
 "use client";
 import { createContext, useContext, useEffect, useState } from "react";
+import { useCart } from "@/app/Components/CartContex";
 
 const AuthContext = createContext(undefined);
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const { clearCart } = useCart();
 
   // Sync session state on app load
   useEffect(() => {
@@ -29,6 +32,7 @@ export function AuthProvider({ children }) {
   const logout = async () => {
     const res = await fetch('/api/auth/logout', { method: 'POST' });
     if (res.ok) {
+      clearCart(); // Clear the cart on logout
       setUser(null);
       window.location.href = '/login'; // Redirect to login page
     }

@@ -87,6 +87,12 @@ export default function LoginPage() {
           {loading ? 'Logging in...' : 'Sign In'}
         </button>
 
+        <div className={styles.title}>
+          <p><strong>Test Credentials:</strong></p>
+          <p>emilys/emilyspass(admin)</p>
+          <p>michaelw/michaelwpass(editor)</p>
+          <p>sophiab/sophiabpass(user)</p>
+        </div>
 
       </form>
     </div>

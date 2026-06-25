@@ -25,15 +25,15 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body>
-        <AuthProvider>
         <CartProvider>
+        <AuthProvider>        
           <Header title="RevoShop" />
           <main>
             {children}
           </main>
           <Footer />
-        </CartProvider>
         </AuthProvider>
+        </CartProvider>
       </body>
     </html>
   );

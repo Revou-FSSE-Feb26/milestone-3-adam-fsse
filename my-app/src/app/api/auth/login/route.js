@@ -43,6 +43,8 @@ export async function POST(request) {
       role = "admin";
     } else if (data.username === "michaelw") {
       role = "editor";
+    } else {
+      role = "user";
     }
 
     // Build the user metadata package structural footprint
