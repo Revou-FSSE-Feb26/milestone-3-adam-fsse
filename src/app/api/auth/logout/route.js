@@ -13,5 +13,7 @@ export async function POST() {
     maxAge: 0, 
   });
 
+  
+
   return NextResponse.json({ success: true }, { status: 200 });
 }
